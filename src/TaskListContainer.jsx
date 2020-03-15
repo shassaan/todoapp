@@ -1,18 +1,19 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import TaskList from './TaskList'
 import { getAllTasks } from './ApiHelper'
+import { TaskContext } from './Context/TaskContext';
 const TaskListContainer = () => {
     const [tasks, setTasks] = useState([]);
-    
+    const taskHook = useContext(TaskContext)[0];
     useEffect(() => {
         const fetch = async () => {
             let response = await getAllTasks();
-            console.log(response)
+            
             setTasks(response); 
         }
         fetch();
 
-    }, [tasks]);
+    }, [taskHook]);
 
 
 
@@ -20,9 +21,7 @@ const TaskListContainer = () => {
         <>
             <div className="row">
                 <div className="col-md-6">
-                    {tasks && tasks.length > 0 && tasks.map(e => {
-                        return <h1>{e.text}</h1>
-                    })}
+                    {<TaskList title="Pending Tasks" data={tasks}/>}
                 </div>
                 <div className="col-md-6">
                     <TaskList title="Completed Tasks" />

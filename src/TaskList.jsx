@@ -3,7 +3,7 @@ const TaskList = (prop) => {
     const {data = [],title="No Title"} = prop || [];
     
     return (
-        <div className="p-5" style={{border:'1px solid black'}}>
+        <div className="p-1" style={{border:'1px solid black'}}>
         <h2 className="text-center">{title}</h2>
             <table className="table">
                 <thead>
@@ -22,7 +22,7 @@ const TaskList = (prop) => {
                                     <td>{i+1}</td>
                                     <td>{value.text}</td>
                             <td>{value.taskDate}</td>
-                            <td><a>complete</a> <a>Delete</a></td>
+                            <td><a href="#">complete</a> <a href="#">Delete</a></td>
                                 </tr>
                             )
                         })

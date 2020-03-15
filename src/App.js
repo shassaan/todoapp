@@ -1,17 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Header from './Header';
 import Footer from './Footer';
 import MainContent from './MainContent';
+import { TaskContext } from './Context/TaskContext'
 
 function App() {
+  const taskHook = useState(0);
   return (
     <div className="container-fluid">
-      <Header/>
-      <MainContent/>
+      <Header />
+      <TaskContext.Provider value={taskHook}>
+        <MainContent />
+      </TaskContext.Provider>
       <Footer>
-        CopyRight {Date.now('Y')}
+        CopyRight {new Date().getFullYear()}
       </Footer>
     </div>
   );
