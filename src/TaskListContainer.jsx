@@ -21,7 +21,7 @@ const TaskListContainer = () => {
         <>
             <div className="row">
                 <div className="col-md-6">
-                    {<TaskList title="Pending Tasks" data={tasks.filter(x=> !x.isFinished)}/>}
+                    <TaskList title="Pending Tasks" data={tasks.filter(x=> !x.isFinished)}/>
                 </div>
                 <div className="col-md-6">
                     <TaskList title="Completed Tasks" data={tasks.filter(x=> x.isFinished)}/>
