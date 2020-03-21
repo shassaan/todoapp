@@ -1,4 +1,4 @@
-export const API_PATH = "http://localhost:1234/api/ToDoEntities";
+export const API_PATH = "https://doetnetodoapi.herokuapp.com/api/ToDoEntities";
 
 
 export const getAllTasks = async () => {
